@@ -112,12 +112,10 @@
         "type": {
           "type": "array",
           "description": "A hint at the representation of the resource referenced by the target URI. This represents the media types that are used for both accepting and emitting",
-          "items" : [
-            {
+          "items" : {
             "type": "string",
             "maxLength": 64
-            }
-          ],
+          },
           "minItems": 1,
           "default": "application/cbor"
         }
