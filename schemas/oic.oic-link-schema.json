@@ -134,6 +134,35 @@
               }
             }
           }
+        },
+        "tag-locn": {
+          "allOf": [
+            {
+              "$ref": "oic.types-schema.json#/definitions/locn-room-list"
+            },
+            {
+              "description": "Location of the Resource or Device"
+            }
+          ]
+
+        },
+        "tag-pos-desc": {
+          "oneOf": [
+            {
+              "$ref": "oic.types-schema.json#/definitions/pos-descriptions"
+            },
+            {
+              "type": "array",
+              "readOnly": true,
+              "description": "Relative position; as defined by UPnP relpos, relative position against a known [0,0,0] point.",
+              "minItems": 3,
+              "maxItems": 3,
+              "items": {
+                "type": "number"
+              }
+            }
+          ]
+
         }
       },
       "required": [ "href", "rt", "if" ]

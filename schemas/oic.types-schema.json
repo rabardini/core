@@ -32,6 +32,12 @@
           "description": "A string instance is valid against this attribute if it contains an integer in the range [0, (2**64)-1]",
           "type": "string",
           "pattern": "^0|([1-9][0-9]{0,19})$"
+        },
+        "locn-room-list": {
+          "enum": ["attic","balcony","ballroom","bathroom","bedroom","border","boxroom","cellar","cloakroom","conservatory","corridor","deck","den","diningroom","drawingroom","driveway","dungeon","ensuite","entrance","familyroom","garage","garden","guestroom","hall","kitchen","larder","lawn","library","livingroom","lounge","mancave","masterbedroom","musicroom","office","pantry","parkinglot","parlour","patio","receiptionroom","roof","roofterrace","sauna","shed","sittingroom","snug","spa","studio","suite","swimmingpool","toilet","utilityroom","ward","vegetableplot","terrace"]
+        },
+        "pos-descriptions": {
+          "enum": ["top","bottom","left","right","centre","topleft","bottomleft","centreleft","centreright","bottomright","topright"]
         }
     }
 }
