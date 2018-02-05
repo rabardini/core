@@ -136,9 +136,8 @@
           }
         },
         "tag-locn": {
-		  "description": "Location of the Resource or Device"
+	  "description": "Location of the Resource or Device",
           "$ref": "oic.types-schema.json#/definitions/locn-room-list"
-          ]
         },
         "tag-pos-desc": {
           "oneOf": [
