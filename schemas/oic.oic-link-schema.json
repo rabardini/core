@@ -136,27 +136,22 @@
           }
         },
         "tag-locn": {
-		  "description": "Location of the Resource or Device"
+          "description": "Location of the Resource or Device",
           "$ref": "oic.types-schema.json#/definitions/locn-room-list"
-          ]
         },
         "tag-pos-desc": {
-          "oneOf": [
-            {
-              "$ref": "oic.types-schema.json#/definitions/pos-descriptions"
-            },
-            {
-              "type": "array",
-              "readOnly": true,
-              "description": "Relative position; as defined by UPnP relpos, relative position against a known [0,0,0] point.",
-              "minItems": 3,
-              "maxItems": 3,
-              "items": {
-                "type": "number"
-              }
-            }
-          ]
-
+          "description": "Description relative position of the Resource",
+          "$ref": "oic.types-schema.json#/definitions/pos-descriptions"
+        },
+        "tag-rel-pos": {
+          "type": "array",
+          "readOnly": true,
+          "description": "Relative position; against a known [0,0,0] point.",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "number"
+          }
         }
       },
       "required": [ "href", "rt", "if" ]
