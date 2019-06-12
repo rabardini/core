@@ -85,12 +85,8 @@
               }
           }
       },
-      "tag-locn": {
-        "description": "Location of the Resource or Device",
-        "$ref": "oic.types-schema.json#/definitions/locn-room-list"
-      },
       "tag-pos-desc": {
-        "description": "Description relative position of the Resource",
+        "description": "Descriptive relative position of the Resource",
         "$ref": "oic.types-schema.json#/definitions/pos-descriptions"
       },
       "tag-rel-pos": {
@@ -100,8 +96,14 @@
         "minItems": 3,
         "maxItems": 3,
         "items": {
-          "type": "number"
+          "type": "number",
+          "minimum": -1,
+          "maximum": 1
         }
+      },
+      "tag-func-desc": {
+        "description": "Descriptive function of the Resource, contains a valid OCF enumeration value",
+        "type": "string"
       }
   }
 }
