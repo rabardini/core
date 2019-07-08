@@ -186,7 +186,7 @@
         "tag-pos-desc": {
           "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.links.properties.core-schema.json#/definitions/tag-pos-desc"
         },
-        "tag-rel-pos": {
+        "tag-pos-rel": {
           "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.links.properties.core-schema.json#/definitions/tag-rel-pos"
         },
         "tag-func-desc": {

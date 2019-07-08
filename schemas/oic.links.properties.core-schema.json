@@ -87,9 +87,16 @@
       },
       "tag-pos-desc": {
         "description": "Descriptive relative position of the Resource",
-        "$ref": "oic.types-schema.json#/definitions/pos-descriptions"
+        "allOf": [
+          {
+            "$ref": "oic.types-schema.json#/definitions/pos-descriptions"
+          },
+          {
+            "readOnly": true
+          }
+        ]
       },
-      "tag-rel-pos": {
+      "tag-pos-rel": {
         "type": "array",
         "readOnly": true,
         "description": "Relative position; against a known [0,0,0] point.",
@@ -103,7 +110,8 @@
       },
       "tag-func-desc": {
         "description": "Descriptive function of the Resource, contains a valid OCF enumeration value",
-        "type": "string"
+        "type": "string",
+        "readOnly": true
       }
   }
 }
