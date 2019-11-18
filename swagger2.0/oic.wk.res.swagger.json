@@ -182,6 +182,15 @@
         },
         "type": {
           "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.links.properties.core-schema.json#/definitions/type"
+        },
+        "tag-pos-desc": {
+          "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.links.properties.core-schema.json#/definitions/tag-pos-desc"
+        },
+        "tag-pos-rel": {
+          "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.links.properties.core-schema.json#/definitions/tag-pos-rel"
+        },
+        "tag-func-desc": {
+          "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.links.properties.core-schema.json#/definitions/tag-func-desc"
         }
       },
       "required": [

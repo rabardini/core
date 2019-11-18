@@ -32,6 +32,10 @@
           "description": "A string instance is valid against this attribute if it contains an integer in the range [0, (2**64)-1]",
           "type": "string",
           "pattern": "^0|([1-9][0-9]{0,19})$"
+        },
+        "pos-descriptions": {
+          "type": "string",
+          "enum": ["unknown","top","bottom","left","right","centre","topleft","bottomleft","centreleft","centreright","bottomright","topright","topcentre","bottomcentre"]
         }
     }
 }
