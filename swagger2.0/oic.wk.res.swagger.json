@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Discoverable Resources",
-    "version": "2019-03-13",
+    "version": "2019-04-22",
     "license": {
       "name": "OCF Data Model License",
       "url": "https://openconnectivityfoundation.github.io/core/LICENSE.md",
@@ -33,6 +33,15 @@
             "description" : "",
             "x-example": [
               {
+                "href": "/oic/res",
+                "rt":   ["oic.wk.res"],
+                "if":   ["oic.if.ll", "oic.if.b", "oic.if.baseline"],
+                "rel":  ["self"],
+                "p":    {"bm": 3},
+                "eps": [
+                  {"ep": "coaps://[fe80::b1d6]:1122"}                ]
+              },
+              {
                 "href": "/humidity",
                 "rt":   ["oic.r.humidity"],
                 "if":   ["oic.if.s", "oic.if.baseline"],
@@ -60,6 +69,38 @@
         }
       }
     },
+    "/oic/res?if=oic.if.b" : {
+      "get": {
+        "description": "Batch representation of /oic/res; list of discoverable Resources\n",
+        "parameters": [
+          {"$ref": "#/parameters/interface-all"}
+        ],
+        "responses": {
+          "200": {
+            "description" : "",
+            "x-example": [
+              {
+                "href": "/humidity",
+                "rep":{
+                  "rt":           ["oic.r.humidity"],
+                  "humidity": 40,
+                  "desiredHumidity": 40
+                }
+              },
+              {
+                "href": "/temperature",
+                "rep":{
+                  "rt":           ["oic.r.temperature"],
+                  "temperature": 20.0,
+                  "units": "C"
+                }
+              }
+            ],
+            "schema": { "$ref": "#/definitions/sbatch" }
+          }
+        }
+      }
+    },
     "/oic/res?if=oic.if.baseline": {
       "get": {
         "description": "Baseline representation of /oic/res; list of discoverable Resources\n",
@@ -74,7 +115,7 @@
             "x-example": [
               {
                 "rt": ["oic.wk.res"],
-                "if": ["oic.if.ll", "oic.if.baseline"],
+                "if": ["oic.if.ll", "oic.if.b", "oic.if.baseline"],
                 "links": [
                   {
                     "href": "/humidity",
@@ -112,7 +153,7 @@
       "in": "query",
       "name": "if",
       "type": "string",
-      "enum": ["oic.if.ll", "oic.if.baseline"]
+      "enum": ["oic.if.ll", "oic.if.b", "oic.if.baseline"]
     }
   },
   "definitions": {
@@ -236,6 +277,7 @@
             "items": {
               "enum": [
                 "oic.if.ll",
+                "oic.if.b",
                 "oic.if.baseline"
               ],
               "type": "string",
@@ -252,13 +294,45 @@
               "$ref": "#/definitions/oic.oic-link"
             }
           }
-        }
-      },
-      "required": [
-        "rt",
-        "if",
-        "links"
-      ]
+        },
+        "required": [
+          "rt",
+          "if",
+          "links"
+        ]
+      }
+    },
+    "sbatch" : {
+      "type" : "array",
+      "minItems" : 1,
+      "items" : {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "href": {
+            "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.links.properties.core-schema.json#/definitions/href"
+          },
+          "rep": {
+            "oneOf": [
+              {
+                "description": "The response payload from a single Resource",
+                "type": "object"
+              },
+              {
+                "description": " The response payload from a Collection (batch) Resource",
+                "items": {
+                  "$ref": "#/definitions/oic.oic-link"
+                },
+                "type": "array"
+              }
+            ]
+          }
+        },
+        "required": [
+          "href",
+          "rep"
+        ]
+      }
     }
   }
 }
