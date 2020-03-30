@@ -85,7 +85,8 @@
                   "lat": {
                       "type": "integer",
                       "minimum": 0,
-                      "description": "The expected latency in seconds"
+                      "exclusiveMinimum": true,
+                      "description": "The expected latency in seconds, always > 0"
                   }
               }
           }
