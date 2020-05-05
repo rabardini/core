@@ -1,43 +1,27 @@
-# IoTDataModels
+# core
 
-This repo contains the data models that are part of the OCF core specification.
-
-latest that is availabe can be found at:
+This repo contains the data models that are part of the OCF core specification. The latest version of which can be found at:
 
 https://openconnectivity.org/specs/OCF_Core_Specification.pdf
 
-
-## referencing files via http(s) from github
-
-github repos that has the GitHub Pages feature turned on has the following syntax:
-
-http(s)://[organisation name].github.io/[repo name]/path+filename
-
-open connectivity foundation repos with github pages feature turned on:
-- bridging
-- certification
-- core
-- core-extensions
-- devicemodels
-- IoTDataModels
-- OCF-oneM2M
-- security
-
-
 ## referencing files with full URL
-This repo uses the github pages feature.
-e.g. all files can be accessed by using the URL:
+
+This repo uses the github pages feature. e.g. all files can be accessed by using the URL:
 
 http://openconnectivityfoundation.github.io/core/
 
-and then use the path and filename to retrieve the file by means of http(s).
+and then use the path and filename to retrieve the file by means of http(s). For example, the URL of the swagger file with rt type = oic.wk.p is:
 
-The URL of the swagger file with rt type = oic.wk.mnt is:
+http://openconnectivityfoundation.github.io/core/swagger2.0/oic.wk.p.swagger.json
 
-http://openconnectivityfoundation.github.io/core/swagger2.0/oic.wk.mnt.swagger.json
-
-
-The full url can be used to reference a property definition. 
-For example to reference in a schema the definition of UUID defined in the schema file: oic.types-schema.json use:
+The full url can be used to reference a property definition. For example to reference in a schema the definition of UUID defined in the schema file: oic.types-schema.json use:
 
 "$ref": "http://openconnectivityfoundation.github.io/core/schemas/oic.types-schema.json#definitions/uuid"
+
+## Introspection examples
+
+[The examples folder](https://github.com/openconnectivityfoundation/core/tree/master/examples) contains two examples showing how Introspection Device Data (IDD) may be constructed for a Device.
+
+[introspectiondevicedataexample.swagger.json](https://github.com/openconnectivityfoundation/core/tree/master/examples/introspectiondevicedataexample.swagger.json) illustrates a simple device that exposes an instance of a Binary Switch Resource and an instance of a Brightness Resource
+
+[introspectiondevicedataexample.swagger.json](https://github.com/openconnectivityfoundation/core/tree/master/examples/introspectiondevicedataexample-collections.swagger.json) illustrates a case where the Device supports the ability to create instances of Binary Switch and instances of Humidity via a Collection that exposes the "oic.if.create" OCF Interface.
